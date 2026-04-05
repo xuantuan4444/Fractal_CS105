@@ -66,7 +66,7 @@ const COLOR_SCHEMES = {
 
 // ==================== TRANG THAI UNG DUNG ====================
 let currentMode = 'triangle';          // Che do hien tai: 'triangle' hoac 'carpet'
-let currentDepth = 4;                  // Do sau de quy hien tai
+let currentDepth = 0;                  // Do sau de quy hien tai
 let currentColorScheme = 'rainbow';    // Bang mau hien tai
 
 // ==================== KHOI TAO WEBGL ====================
