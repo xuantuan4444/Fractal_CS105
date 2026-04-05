@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fractal WebGL Demo - CS105 UIT</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: sans-serif; }
+        canvas { width: 100vw; height: 100vh; display: block; }
+        #ui { position: absolute; top: 20px; left: 20px; color: white; background: rgba(0,0,0,0.7); padding: 15px; border-radius: 8px; pointer-events: none; }
+        .key { color: #00ff00; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <h2>Fractal Explorer (CS105)</h2>
+        <p>Chế độ: <span id="modeName">Mandelbrot</span></p>
+        <p><span class="key">Cuộn chuột:</span> Zoom In/Out</p>
+        <p><span class="key">Chuột trái:</span> Di chuyển (Pan)</p>
+        <p><span class="key">Phím [M]:</span> Chuyển Mandelbrot</p>
+        <p><span class="key">Phím [J]:</span> Chuyển Julia Set</p>
+    </div>
+    <canvas id="glCanvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
