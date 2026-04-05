@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fractal WebGL Demo - CS105 UIT</title>
+    <title>Fractal WebGL MandelBrot & Julia Set Demo</title>
     <style>
-        body { margin: 0; overflow: hidden; font-family: sans-serif; }
+        body { margin: 0; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif; }
         canvas { width: 100vw; height: 100vh; display: block; }
-        #ui { position: absolute; top: 20px; left: 20px; color: white; background: rgba(0,0,0,0.7); padding: 15px; border-radius: 8px; pointer-events: none; }
-        .key { color: #00ff00; font-weight: bold; }
+        #ui { 
+            position: absolute; 
+            top: 20px; 
+            left: 20px; 
+            color: #eee; 
+            background: rgba(0, 0, 0, 0.85); 
+            padding: 20px; 
+            border-radius: 12px; 
+            border: 1px solid #00d4ff; /* Viền xanh Cyan cho đúng tông màu demo */
+            pointer-events: none; 
+            max-width: 320px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h2 { margin: 0 0 10px 0; color: #00d4ff; font-size: 1.4em; border-bottom: 2px solid #00d4ff; padding-bottom: 5px; }
+        p { margin: 10px 0; font-size: 0.95em; }
+        .key { color: #00ffcc; font-weight: bold; background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(0,255,204,0.3); }
+        #modeName { color: #ffcc00; font-weight: bold; }
     </style>
 </head>
 <body>
     <div id="ui">
-        <h2>Fractal Explorer (CS105)</h2>
-        <p>Chế độ: <span id="modeName">Mandelbrot</span></p>
-        <p><span class="key">Cuộn chuột:</span> Zoom In/Out</p>
+        <h2>Khám phá Mandelbrot & Julia</h2>
+        <p>Chế độ xem: <span id="modeName">Mandelbrot</span></p>
+        
+        <hr style="border: 0.5px solid #444; margin: 10px 0;">
+        
+        <p><span class="key">Cuộn chuột:</span> Phóng to / Thu nhỏ</p>
         <p><span class="key">Chuột trái:</span> Di chuyển (Pan)</p>
-        <p><span class="key">Phím [M]:</span> Chuyển Mandelbrot</p>
-        <p><span class="key">Phím [J]:</span> Chuyển Julia Set</p>
+        <p><span class="key">Phím [M]:</span> Chế độ Mandelbrot</p>
+        <p><span class="key">Phím [J]:</span> Chế độ Julia Set</p>
+        
+        <div id="hint">
+            <p style="font-size: 0.85em; color: #00d4ff; margin-top: 15px; line-height: 1.4;">
+            <strong>Mẹo nhỏ:</strong> Khi ở chế độ Mandelbrot, hãy di chuyển chuột đến vùng bạn thích rồi nhấn <strong>[J]</strong>. Hệ thống sẽ tạo ngay một tập Julia dựa trên chính tọa độ con trỏ chuột của bạn!
+            </p>
+        </div>
     </div>
     <canvas id="glCanvas"></canvas>
     <script src="script.js"></script>
