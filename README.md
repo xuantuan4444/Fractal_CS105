@@ -1,2 +1,64 @@
-# Fractal_CS105
-CS105_essay
+# Fractal CS105 — Tiểu luận Đồ họa Fractal
+
+Môn học: **CS105 - Đồ họa Máy tính**
+
+## Thành viên nhóm
+
+| Họ và tên | MSSV |
+|-----------|------|
+| Mai Xuân Tuấn | 23521714 |
+| Phạm Khương Duy | 23520383 |
+| Lê Nguyễn Quốc Bảo | 23520108 |
+
+---
+
+## Mô tả dự án
+
+Dự án tìm hiểu và trực quan hóa các loại **đồ họa Fractal** bằng **WebGL** chạy trực tiếp trên trình duyệt. Gồm 3 phần:
+
+| Phần | Nội dung | Thư mục |
+|------|----------|---------|
+| 2.1 & 2.2 | Bông tuyết Van Koch & Đảo Minkowski | `Vankoch_Minkowski/` |
+| 2.3 | Tam giác Sierpinski & Thảm Sierpinski | `Sierpinski_sierpinski/` |
+| 2.4 | Tập Mandelbrot & Julia Set | `Mandelbrot_JuliaSet/` |
+
+---
+
+## Cách chạy
+
+> **Yêu cầu:** VS Code + extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+> *(Bắt buộc dùng HTTP server vì dự án dùng ES Modules và fetch shader.)*
+
+**Bước 1:** Mở thư mục `Fractal_CS105/` bằng VS Code.
+
+**Bước 2:** Click chuột phải vào file `index.html` ở thư mục gốc → chọn **"Open with Live Server"**.
+
+**Bước 3:** Trình duyệt tự mở tại `http://127.0.0.1:5500` — chuyển tab để xem từng demo.
+
+---
+
+## Cấu trúc thư mục
+
+```
+Fractal_CS105/
+├── index.html                        ← Trang demo chung (chạy file này)
+├── Vankoch_Minkowski/
+│   ├── index.html
+│   ├── main.js
+│   ├── style.css
+│   ├── vertex.glsl
+│   └── fragment.glsl
+├── Sierpinski_sierpinski/
+│   ├── index.html
+│   └── src/
+│       ├── main.js
+│       ├── shader.js
+│       ├── utils.js
+│       ├── sierpinskiTriangle.js
+│       └── sierpinskiCarpet.js
+└── Mandelbrot_JuliaSet/
+    └── Source/
+        ├── index.html
+        ├── script.js
+        └── shader.glsl
+```
