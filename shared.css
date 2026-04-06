@@ -1,8 +1,13 @@
+/* ============================================
+   SHARED STYLES - Fractal CS105
+   ============================================ */
+
+/* === RESET & BASE === */
 body { 
     margin: 0; 
     overflow: hidden; 
     font-family: 'Segoe UI', Arial, sans-serif; 
-    background-color: #000; /* Nền đen sâu */
+    background-color: #000;
 }
 
 canvas { 
@@ -11,6 +16,7 @@ canvas {
     display: block; 
 }
 
+/* === UI PANEL === */
 #ui { 
     position: absolute; 
     top: 20px; 
@@ -19,14 +25,15 @@ canvas {
     background: rgba(0, 0, 0, 0.85); 
     padding: 20px; 
     border-radius: 12px; 
-    border: 1px solid #00d4ff; 
-    pointer-events: auto; 
-    /* Thay đổi 2 dòng dưới đây */
+    border: 1px solid #00d4ff;
     width: 340px; 
     box-sizing: border-box;
-    /* ------------------------- */
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     z-index: 10;
+}
+
+#ui.no-pointer { 
+    pointer-events: none; 
 }
 
 h2 { 
@@ -42,7 +49,12 @@ p {
     font-size: 0.95em; 
 }
 
-/* Tùy chỉnh cụm nút bấm và menu */
+hr.divider {
+    border: 0.5px solid #444; 
+    margin: 15px 0;
+}
+
+/* === CONTROLS === */
 #controls {
     display: flex;
     flex-direction: column;
@@ -82,12 +94,61 @@ select option {
     color: #fff;
 }
 
-/* Thêm đoạn này vào cuối file style.css */
-#levelNote {
+/* === SLIDER GROUP === */
+.slider-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider-group label {
+    color: #00ffcc;
+    font-size: 0.9em;
+    min-width: 45px;
+}
+
+input[type="range"] {
+    width: 140px;
+    accent-color: #00d4ff;
+    background: transparent;
+    cursor: pointer;
+}
+
+#depthValue {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #ffcc00;
+    min-width: 22px;
+    text-align: center;
+}
+
+/* === INFO DISPLAY === */
+#info {
     font-size: 0.85em; 
     color: #00d4ff; 
     margin-top: 15px; 
     line-height: 1.5;
-    /* Giữ cho vùng chữ luôn có đủ chỗ cho khoảng 3-4 dòng text */
-    min-height: 65px; 
+    min-height: 40px;
+}
+
+/* === KEYBOARD HINTS (Mandelbrot) === */
+.key { 
+    color: #00ffcc; 
+    font-weight: bold; 
+    background: rgba(255,255,255,0.1); 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    border: 1px solid rgba(0,255,204,0.3); 
+}
+
+#modeName { 
+    color: #ffcc00; 
+    font-weight: bold; 
+}
+
+#hint p {
+    font-size: 0.85em; 
+    color: #00d4ff; 
+    margin-top: 15px; 
+    line-height: 1.4;
 }
