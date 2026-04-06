@@ -6,9 +6,10 @@ Môn học: **CS105 - Đồ họa Máy tính**
 
 | Họ và tên | MSSV |
 |-----------|------|
-| Mai Xuân Tuấn | 23521714 |
-| Phạm Khương Duy | 23520383 |
 | Lê Nguyễn Quốc Bảo | 23520108 |
+| Phạm Khương Duy | 23520383 |
+| Mai Xuân Tuấn | 23521714 |
+
 
 ---
 
