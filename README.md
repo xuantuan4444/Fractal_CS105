@@ -17,11 +17,11 @@ Môn học: **CS105 - Đồ họa Máy tính**
 
 Dự án tìm hiểu và trực quan hóa các loại **đồ họa Fractal** bằng **WebGL** chạy trực tiếp trên trình duyệt. Gồm 3 phần:
 
-| Phần | Nội dung | Thư mục |
-|------|----------|---------|
-| 2.1 & 2.2 | Bông tuyết Van Koch & Đảo Minkowski | `Vankoch_Minkowski/` |
-| 2.3 | Tam giác Sierpinski & Thảm Sierpinski | `Sierpinski_sierpinski/` |
-| 2.4 | Tập Mandelbrot & Julia Set | `Mandelbrot_JuliaSet/` |
+| Phần | Nội dung |
+|------|----------|
+| 2.1 & 2.2 | Bông tuyết Van Koch & Đảo Minkowski |
+| 2.3 | Tam giác Sierpinski & Thảm Sierpinski |
+| 2.4 | Tập Mandelbrot & Julia Set |
 
 ---
 
