@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractal Demo | CS105</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ===== THANH DIEU HUONG ===== */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(0, 0, 0, 0.85);
+            border-bottom: 1px solid #00d4ff;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.15);
+            flex-shrink: 0;
+        }
+
+        .nav-title {
+            color: #00d4ff;
+            font-size: 1em;
+            font-weight: 600;
+            margin-right: 12px;
+            white-space: nowrap;
+            letter-spacing: 0.05em;
+        }
+
+        .tab-btn {
+            padding: 7px 18px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #888;
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.88em;
+            font-family: inherit;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00d4ff;
+            color: #00d4ff;
+            box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+        }
+
+        .tab-btn.active {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: #00d4ff;
+            color: #00d4ff;
+            box-shadow: 0 0 12px rgba(0, 212, 255, 0.35);
+        }
+
+        /* ===== IFRAME DEMO ===== */
+        #demoFrame {
+            flex: 1;
+            width: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <span class="nav-title">Fractal CS105</span>
+        <button class="tab-btn active"
+                onclick="switchTab(this, 'Vankoch_Minkowski/index.html')">
+            Koch &amp; Minkowski
+        </button>
+        <button class="tab-btn"
+                onclick="switchTab(this, 'Sierpinski_sierpinski/index.html')">
+            Sierpinski
+        </button>
+        <button class="tab-btn"
+                onclick="switchTab(this, 'Mandelbrot_JuliaSet/Source/index.html')">
+            Mandelbrot &amp; Julia
+        </button>
+    </nav>
+
+    <iframe id="demoFrame" src="Vankoch_Minkowski/index.html"></iframe>
+
+    <script>
+        function switchTab(clickedBtn, src) {
+            // Xoa class active cua tat ca nut
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Dat active cho nut vua bam
+            clickedBtn.classList.add('active');
+
+            // Doi noi dung iframe
+            document.getElementById('demoFrame').src = src;
+        }
+    </script>
+
+</body>
+</html>

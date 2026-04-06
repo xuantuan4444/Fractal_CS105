@@ -1,3 +1,0 @@
-1: Code 2 thuật toán hình thành koch snowflake, minkowski island 
-2: viết riêng 1 hàm main để khởi tạo chạy tất cả các thuật toán
-3: ae xem sửa cái gì thì sửa nha, chủ yếu hàm main, hoặc có ý tưởng nào hay hơn, ví dụ html ....
