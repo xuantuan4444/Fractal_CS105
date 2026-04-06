@@ -1,0 +1,93 @@
+body { 
+    margin: 0; 
+    overflow: hidden; 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    background-color: #000; /* Nền đen sâu */
+}
+
+canvas { 
+    width: 100vw; 
+    height: 100vh; 
+    display: block; 
+}
+
+#ui { 
+    position: absolute; 
+    top: 20px; 
+    left: 20px; 
+    color: #eee; 
+    background: rgba(0, 0, 0, 0.85); 
+    padding: 20px; 
+    border-radius: 12px; 
+    border: 1px solid #00d4ff; 
+    pointer-events: auto; 
+    /* Thay đổi 2 dòng dưới đây */
+    width: 340px; 
+    box-sizing: border-box;
+    /* ------------------------- */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+h2 { 
+    margin: 0 0 15px 0; 
+    color: #00d4ff; 
+    font-size: 1.4em; 
+    border-bottom: 2px solid #00d4ff; 
+    padding-bottom: 5px; 
+}
+
+p { 
+    margin: 10px 0; 
+    font-size: 0.95em; 
+}
+
+/* Tùy chỉnh cụm nút bấm và menu */
+#controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    color: #00ffcc;
+    font-size: 0.9em;
+}
+
+select, button {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 6px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+select:hover, button:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: #00d4ff;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+}
+
+select:focus, button:focus {
+    outline: none;
+    border-color: #00ffcc;
+}
+
+select option {
+    background: #111;
+    color: #fff;
+}
+
+/* Thêm đoạn này vào cuối file style.css */
+#levelNote {
+    font-size: 0.85em; 
+    color: #00d4ff; 
+    margin-top: 15px; 
+    line-height: 1.5;
+    /* Giữ cho vùng chữ luôn có đủ chỗ cho khoảng 3-4 dòng text */
+    min-height: 65px; 
+}
