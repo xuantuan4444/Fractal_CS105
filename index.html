@@ -4,32 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fractal Demo | CS105</title>
+    <link rel="stylesheet" href="shared.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #000;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        /* ===== THANH DIEU HUONG ===== */
+        /* Navigation Bar */
         nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             display: flex;
             align-items: center;
             gap: 8px;
             padding: 8px 20px;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             border-bottom: 1px solid #00d4ff;
             box-shadow: 0 4px 20px rgba(0, 212, 255, 0.15);
-            flex-shrink: 0;
+            z-index: 100;
         }
 
         .nav-title {
@@ -38,7 +28,6 @@
             font-weight: 600;
             margin-right: 12px;
             white-space: nowrap;
-            letter-spacing: 0.05em;
         }
 
         .tab-btn {
@@ -51,14 +40,12 @@
             font-size: 0.88em;
             font-family: inherit;
             transition: all 0.2s ease;
-            white-space: nowrap;
         }
 
         .tab-btn:hover {
             background: rgba(0, 212, 255, 0.1);
             border-color: #00d4ff;
             color: #00d4ff;
-            box-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
         }
 
         .tab-btn.active {
@@ -68,49 +55,100 @@
             box-shadow: 0 0 12px rgba(0, 212, 255, 0.35);
         }
 
-        /* ===== IFRAME DEMO ===== */
-        #demoFrame {
-            flex: 1;
-            width: 100%;
-            border: none;
+        /* Sections */
+        .fractal-section {
+            display: none;
+            position: fixed;
+            top: 45px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .fractal-section.active {
             display: block;
+        }
+
+        .fractal-section canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .fractal-section #ui {
+            top: 70px;
         }
     </style>
 </head>
 <body>
-
+    <!-- Navigation -->
     <nav>
         <span class="nav-title">Fractal CS105</span>
-        <button class="tab-btn active"
-                onclick="switchTab(this, 'Vankoch_Minkowski/index.html')">
-            Koch &amp; Minkowski
-        </button>
-        <button class="tab-btn"
-                onclick="switchTab(this, 'Sierpinski_sierpinski/index.html')">
-            Sierpinski
-        </button>
-        <button class="tab-btn"
-                onclick="switchTab(this, 'Mandelbrot_JuliaSet/Source/index.html')">
-            Mandelbrot &amp; Julia
-        </button>
+        <button class="tab-btn active" data-target="koch-section">Koch & Minkowski</button>
+        <button class="tab-btn" data-target="sierpinski-section">Sierpinski</button>
+        <button class="tab-btn" data-target="mandelbrot-section">Mandelbrot & Julia</button>
     </nav>
 
-    <iframe id="demoFrame" src="Vankoch_Minkowski/index.html"></iframe>
+    <!-- Koch & Minkowski Section -->
+    <section id="koch-section" class="fractal-section active">
+        <div id="ui">
+            <h2>Koch & Minkowski</h2>
+            <div id="controls">
+                <label for="kochType">Fractal</label>
+                <select id="kochType">
+                    <option value="koch">Koch Snowflake</option>
+                    <option value="minkowski">Minkowski Island</option>
+                </select>
+                <div class="slider-group">
+                    <label for="kochDepth">Depth:</label>
+                    <input type="range" id="kochDepth" min="0" max="5" value="0">
+                    <span id="kochDepthValue">0</span>
+                </div>
+            </div>
+            <hr class="divider">
+            <div id="kochInfo"></div>
+        </div>
+        <canvas id="kochCanvas"></canvas>
+    </section>
 
-    <script>
-        function switchTab(clickedBtn, src) {
-            // Xoa class active cua tat ca nut
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+    <!-- Sierpinski Section -->
+    <section id="sierpinski-section" class="fractal-section">
+        <div id="ui">
+            <h2>Sierpinski</h2>
+            <div id="controls">
+                <label for="sierpinskiType">Fractal</label>
+                <select id="sierpinskiType">
+                    <option value="triangle">Triangle</option>
+                    <option value="carpet">Carpet</option>
+                </select>
+                <div class="slider-group">
+                    <label for="sierpinskiDepth">Depth:</label>
+                    <input type="range" id="sierpinskiDepth" min="0" max="8" value="0">
+                    <span id="sierpinskiDepthValue">0</span>
+                </div>
+            </div>
+            <hr class="divider">
+            <div id="sierpinskiInfo"></div>
+        </div>
+        <canvas id="sierpinskiCanvas"></canvas>
+    </section>
 
-            // Dat active cho nut vua bam
-            clickedBtn.classList.add('active');
+    <!-- Mandelbrot & Julia Section -->
+    <section id="mandelbrot-section" class="fractal-section">
+        <div id="ui" class="no-pointer">
+            <h2>Mandelbrot & Julia</h2>
+            <p>Mode: <span id="modeName">Mandelbrot</span></p>
+            <hr class="divider">
+            <p><span class="key">Scroll:</span> Zoom</p>
+            <p><span class="key">Drag:</span> Pan</p>
+            <p><span class="key">[M]</span> Mandelbrot</p>
+            <p><span class="key">[J]</span> Julia Set</p>
+            <div id="hint">
+                <p><strong>Note: </strong>The Mandelbrot set contains all Julia sets. Therefore, to observe a specific Julia set, you need to zoom into the desired region on the Mandelbrot set and then press [J]</p>
+            </div>
+        </div>
+        <canvas id="mandelbrotCanvas"></canvas>
+    </section>
 
-            // Doi noi dung iframe
-            document.getElementById('demoFrame').src = src;
-        }
-    </script>
-
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>
