@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/xuantuan4444/Fractal_CS105#readme",
   "devDependencies": {
-    "electron": "^30.0.1",
+    "electron": "^41.2.0",
     "electron-builder": "^26.8.1"
   }
 }
