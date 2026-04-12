@@ -1,0 +1,14 @@
+# Bỏ qua các thư viện Node.js
+node_modules/
+
+# Bỏ qua các tệp được tạo ra khi đóng gói
+dist/
+
+# Các tệp log và debug của npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Các tệp hệ điều hành
+.DS_Store
+Thumbs.db

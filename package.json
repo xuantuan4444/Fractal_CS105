@@ -1,0 +1,36 @@
+{
+  "name": "fractal_cs105",
+  "version": "1.0.0",
+  "description": "Môn học: **CS105 - Đồ họa Máy tính**",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "appId": "com.example.fractal",
+    "productName": "Fractal Visualizer",
+    "files": [
+      "**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuantuan4444/Fractal_CS105.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuantuan4444/Fractal_CS105/issues"
+  },
+  "homepage": "https://github.com/xuantuan4444/Fractal_CS105#readme",
+  "devDependencies": {
+    "electron": "^30.0.1",
+    "electron-builder": "^26.8.1"
+  }
+}
